@@ -44,7 +44,10 @@ function copyDataToNewSheet() {
 
         if (sourceSheet) {
           const sourceData = sourceSheet.getDataRange().getValues();
-          const dataAfterThirdRow = sourceData.slice(3);
+          const dataAfterThirdRow =
+            location.name === 'Leopold'
+              ? sourceData.slice(2)
+              : sourceData.slice(3);
 
           // Determine columns to keep based on the year
           const columnsToKeep = columnsForYears[year] || defaultColumns;
